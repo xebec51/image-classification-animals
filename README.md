@@ -99,9 +99,20 @@ Dataset memiliki **variasi resolusi tinggi**, sehingga dilakukan preprocessing u
 
 ### 3. Modeling
 
-Model menggunakan **MobileNetV2** sebagai base model dengan pendekatan transfer learning.
+Proyek ini menggunakan dua pendekatan model:
 
-Arsitektur:
+#### 1) CNN (Sequential Model)
+Model CNN baseline dibangun menggunakan:
+* Conv2D
+* MaxPooling2D
+* Dense Layer
+
+Model ini digunakan sebagai baseline dan untuk memenuhi kriteria penggunaan arsitektur CNN.
+
+#### 2) Transfer Learning (MobileNetV2)
+Model utama menggunakan **MobileNetV2** sebagai base model dengan tambahan fully connected layer.
+
+Arsitektur model utama:
 * Base Model (MobileNetV2)
 * Global Average Pooling
 * Dense Layer + Dropout
@@ -119,15 +130,25 @@ Arsitektur:
 
 ---
 
-## 📈 Hasil Model
+## 📊 Model Performance
 
-| Metric | Nilai |
-|------|------|
-| Training Accuracy | ~97% |
-| Validation Accuracy | ~96–97% |
-| Test Accuracy | **~96.8%** |
+* CNN (Baseline):
+  * Accuracy: ~59%
+* MobileNetV2 (Best Model):
+  * Training Accuracy: ~97%
+  * Validation Accuracy: ~96-97%
+  * Test Accuracy: ~96%
 
-📌 Model menunjukkan performa tinggi dengan generalisasi yang baik.
+📌 MobileNetV2 memberikan performa terbaik dengan generalisasi yang baik pada data validasi dan data uji.
+
+---
+
+## 📦 Model Export
+
+Model disimpan dalam beberapa format:
+* SavedModel
+* TensorFlow Lite (.tflite)
+* TensorFlow.js (TFJS)
 
 ---
 
